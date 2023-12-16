@@ -1,6 +1,12 @@
 #include <stdio.h>
 #include "LM75.h"
 
+/*!
+ * Reads temperature from a LM75 connected device
+ * @param dev I2c device object bound to the sensor
+ * @param timeout Timeout in milliseconds
+ * @return Temperature, as a fixed-point value, multiplied by 1e2.
+ */
 int16_t readTempLM75(struct i2cDevice dev, uint16_t timeout) {      // returns a fixed-point value, 1e2 factor
     uint16_t data;
     readDoubleI2cReg(dev, 0, timeout, &data);   // todo: handle timeout errors

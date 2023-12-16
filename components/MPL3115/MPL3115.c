@@ -1,6 +1,9 @@
 #include <stdio.h>
 #include "MPL3115.h"
 
+/*!
+ * MPL3115 specific registers
+ */
 enum registers {
     STATUS_REGISTER,
     OUT_P_MSB,
