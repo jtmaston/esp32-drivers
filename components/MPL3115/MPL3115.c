@@ -88,7 +88,7 @@ esp_err_t initMPL3115 (struct i2cDevice dev){
  * @param dev device that is bound to the sensor
  * @return the measured pressure
  */
-float getPressureBarMPL3115(struct i2cDevice dev)                    // fixed point, 1000 factor
+float getPressureBarMPL3115(struct i2cDevice dev)
 {
     uint16_t integerPart;
     uint8_t fractionalPart;
@@ -129,5 +129,6 @@ float getTemperatureCMPL3115(struct i2cDevice dev){
     }  // block until data is available
     uint16_t temp;
     readDoubleI2cReg(dev, OUT_T_MSB, 100, &temp);
-    return (float)(temp >> 4) / 256.0f;
-}
+    return (float)(temp >> 8) + ((float)((temp >> 8) & 0b1111) / 256.0f);  // this is about as efficient as using
+                                                                           // the battery pack of a drill as a hammer
+}                                                                          // to make a hole with a flathead screwdriver

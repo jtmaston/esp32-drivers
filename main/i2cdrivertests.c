@@ -20,7 +20,8 @@ _Noreturn static void testMPL3115(void *pvParameters) {
     initMPL3115(barometer);
 
     while(true) {
-        ESP_LOGI("MPL3115", "Pressure read: %f", getPressureBarMPL3115(barometer));
+        ESP_LOGI("MPL3115", "Pressure read: %f | Temp read: %f", getPressureBarMPL3115(barometer),
+                 getTemperatureCMPL3115(barometer));
         vTaskDelay(100 / portTICK_PERIOD_MS);
     }
 }
