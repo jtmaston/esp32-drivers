@@ -22,6 +22,7 @@ esp_err_t readMultipleI2cReg(struct i2cDevice dev, uint8_t reg, uint16_t timeout
 
 esp_err_t writeDoubleI2cReg(struct i2cDevice dev, uint8_t reg, uint16_t timeout, uint8_t data, uint8_t data2);
 esp_err_t writeSingleI2cReg(struct i2cDevice dev, uint8_t reg, uint16_t timeout, uint8_t data);
+esp_err_t writeMultipleI2cReg(struct i2cDevice dev, uint8_t reg, uint16_t timeout, const uint8_t* data, uint8_t numBytes);
 
 
 #endif

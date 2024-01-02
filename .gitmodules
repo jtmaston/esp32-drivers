@@ -1,0 +1,3 @@
+[submodule "components/LSM6DSO-bridge/driver"]
+	path = components/LSM6DSO-bridge/driver
+	url = https://github.com/STMicroelectronics/lsm6dso-pid.git
